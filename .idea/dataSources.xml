@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" hash="2027934557">
+    <data-source source="LOCAL" name="indoor dev" uuid="39734412-9fab-45f8-ae7c-9172fe6a972a">
+      <driver-ref>mysql</driver-ref>
+      <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
+      <jdbc-url>jdbc:mysql://chinaairdome.com/indoor?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;autoReconnectForPools=true&amp;is-connection-validation-required=true</jdbc-url>
+      <user-name>indoor</user-name>
+      <user-password>dfd8dfc5dfc5dfcedfc4dfc3</user-password>
+      <default-dialect>TEXT</default-dialect>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/.m2/repository/mysql/mysql-connector-java/5.1.29/mysql-connector-java-5.1.29.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
+
