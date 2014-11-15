@@ -86,11 +86,11 @@
 				</li>
 				</g:if>
 			
-				<g:if test="${stadiumBusinessInstance?.user}">
+				<g:if test="${stadiumBusinessInstance?.userProfile}">
 				<li class="fieldcontain">
-					<span id="user-label" class="property-label"><g:message code="stadiumBusiness.user.label" default="User" /></span>
+					<span id="userProfile-label" class="property-label"><g:message code="stadiumBusiness.userProfile.label" default="User Profile" /></span>
 					
-						<span class="property-value" aria-labelledby="user-label"><g:link controller="user" action="show" id="${stadiumBusinessInstance?.user?.id}">${stadiumBusinessInstance?.user?.encodeAsHTML()}</g:link></span>
+						<span class="property-value" aria-labelledby="userProfile-label"><g:link controller="userProfile" action="show" id="${stadiumBusinessInstance?.userProfile?.id}">${stadiumBusinessInstance?.userProfile?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

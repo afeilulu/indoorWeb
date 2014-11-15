@@ -3,7 +3,7 @@ package com.chinaairdome
 class StadiumBusiness {
 
     StadiumManage stadiumManage;
-    User user;
+    UserProfile userProfile;
     Date date;
     int timeFrom;
     int timeTo;

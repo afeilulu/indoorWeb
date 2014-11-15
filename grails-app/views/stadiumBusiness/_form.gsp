@@ -25,14 +25,7 @@
 		<g:message code="stadiumBusiness.stadiumManage.label" default="Stadium Manage" />
 		<span class="required-indicator">*</span>
 	</label>
-    <%
-    def stadiumManageList = com.chinaairdome.StadiumManage.createCriteria().list {
-        def now = new Date()
-        lt("dateStart",now)
-        gt("dateEnd",now)
-    }
-    %>
-	<g:select id="stadiumManage" name="stadiumManage.id" from="${stadiumManageList}" optionKey="id" required="" value="${stadiumBusinessInstance?.stadiumManage?.id}" class="many-to-one"/>
+	<g:select id="stadiumManage" name="stadiumManage.id" from="${com.chinaairdome.StadiumManage.list()}" optionKey="id" required="" value="${stadiumBusinessInstance?.stadiumManage?.id}" class="many-to-one"/>
 
 </div>
 
@@ -54,12 +47,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: stadiumBusinessInstance, field: 'user', 'error')} required">
-	<label for="user">
-		<g:message code="stadiumBusiness.user.label" default="User" />
+<div class="fieldcontain ${hasErrors(bean: stadiumBusinessInstance, field: 'userProfile', 'error')} required">
+	<label for="userProfile">
+		<g:message code="stadiumBusiness.userProfile.label" default="User Profile" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:select id="user" name="user.id" from="${com.chinaairdome.User.list()}" optionKey="id" required="" value="${stadiumBusinessInstance?.user?.id}" class="many-to-one"/>
+	<g:select id="userProfile" name="userProfile.id" from="${com.chinaairdome.UserProfile.list()}" optionKey="id" required="" value="${stadiumBusinessInstance?.userProfile?.id}" class="many-to-one"/>
 
 </div>
 

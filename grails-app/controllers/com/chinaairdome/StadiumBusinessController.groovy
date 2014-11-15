@@ -1,8 +1,8 @@
 package com.chinaairdome
 
+import grails.transaction.Transactional
 
 import static org.springframework.http.HttpStatus.*
-import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class StadiumBusinessController {
@@ -11,7 +11,7 @@ class StadiumBusinessController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond StadiumBusiness.list(params), model: [stadiumBusinessInstanceCount: StadiumBusiness.count()]
+        respond StadiumBusiness.list(params), model:[stadiumBusinessInstanceCount: StadiumBusiness.count()]
     }
 
     def show(StadiumBusiness stadiumBusinessInstance) {
@@ -30,11 +30,11 @@ class StadiumBusinessController {
         }
 
         if (stadiumBusinessInstance.hasErrors()) {
-            respond stadiumBusinessInstance.errors, view: 'create'
+            respond stadiumBusinessInstance.errors, view:'create'
             return
         }
 
-        stadiumBusinessInstance.save flush: true
+        stadiumBusinessInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
@@ -57,18 +57,18 @@ class StadiumBusinessController {
         }
 
         if (stadiumBusinessInstance.hasErrors()) {
-            respond stadiumBusinessInstance.errors, view: 'edit'
+            respond stadiumBusinessInstance.errors, view:'edit'
             return
         }
 
-        stadiumBusinessInstance.save flush: true
+        stadiumBusinessInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'StadiumBusiness.label', default: 'StadiumBusiness'), stadiumBusinessInstance.id])
                 redirect stadiumBusinessInstance
             }
-            '*' { respond stadiumBusinessInstance, [status: OK] }
+            '*'{ respond stadiumBusinessInstance, [status: OK] }
         }
     }
 
@@ -80,14 +80,14 @@ class StadiumBusinessController {
             return
         }
 
-        stadiumBusinessInstance.delete flush: true
+        stadiumBusinessInstance.delete flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'StadiumBusiness.label', default: 'StadiumBusiness'), stadiumBusinessInstance.id])
-                redirect action: "index", method: "GET"
+                redirect action:"index", method:"GET"
             }
-            '*' { render status: NO_CONTENT }
+            '*'{ render status: NO_CONTENT }
         }
     }
 
@@ -97,7 +97,7 @@ class StadiumBusinessController {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'stadiumBusiness.label', default: 'StadiumBusiness'), params.id])
                 redirect action: "index", method: "GET"
             }
-            '*' { render status: NOT_FOUND }
+            '*'{ render status: NOT_FOUND }
         }
     }
 }
