@@ -1,8 +1,8 @@
 package com.chinaairdome
 
+import grails.transaction.Transactional
 
 import static org.springframework.http.HttpStatus.*
-import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class StadiumManageController {
@@ -11,12 +11,7 @@ class StadiumManageController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond StadiumManage.list(params), model: [stadiumManageInstanceCount: StadiumManage.count()]
-//        respond StadiumManage.withCriteria {
-//            def now = new Date()
-//            lt('dateStart',now)
-//            gt('dateEnd',now)
-//        }, model: [stadiumManageInstanceCount: StadiumManage.count()]
+        respond StadiumManage.list(params), model:[stadiumManageInstanceCount: StadiumManage.count()]
     }
 
     def show(StadiumManage stadiumManageInstance) {
@@ -35,11 +30,11 @@ class StadiumManageController {
         }
 
         if (stadiumManageInstance.hasErrors()) {
-            respond stadiumManageInstance.errors, view: 'create'
+            respond stadiumManageInstance.errors, view:'create'
             return
         }
 
-        stadiumManageInstance.save flush: true
+        stadiumManageInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
@@ -62,18 +57,18 @@ class StadiumManageController {
         }
 
         if (stadiumManageInstance.hasErrors()) {
-            respond stadiumManageInstance.errors, view: 'edit'
+            respond stadiumManageInstance.errors, view:'edit'
             return
         }
 
-        stadiumManageInstance.save flush: true
+        stadiumManageInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'StadiumManage.label', default: 'StadiumManage'), stadiumManageInstance.id])
                 redirect stadiumManageInstance
             }
-            '*' { respond stadiumManageInstance, [status: OK] }
+            '*'{ respond stadiumManageInstance, [status: OK] }
         }
     }
 
@@ -85,14 +80,14 @@ class StadiumManageController {
             return
         }
 
-        stadiumManageInstance.delete flush: true
+        stadiumManageInstance.delete flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'StadiumManage.label', default: 'StadiumManage'), stadiumManageInstance.id])
-                redirect action: "index", method: "GET"
+                redirect action:"index", method:"GET"
             }
-            '*' { render status: NO_CONTENT }
+            '*'{ render status: NO_CONTENT }
         }
     }
 
@@ -102,7 +97,7 @@ class StadiumManageController {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'stadiumManage.label', default: 'StadiumManage'), params.id])
                 redirect action: "index", method: "GET"
             }
-            '*' { render status: NOT_FOUND }
+            '*'{ render status: NOT_FOUND }
         }
     }
 }

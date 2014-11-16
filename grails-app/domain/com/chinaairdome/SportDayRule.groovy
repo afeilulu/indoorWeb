@@ -1,11 +1,11 @@
 package com.chinaairdome
 
+
 class SportDayRule {
 
     Sport sport;
-    int timeFrom; //1-24
-    int timeTo; // 1-24
-    int cost;
+    String ruleJson; // [{begin:9,end:9.5,:cost:20},{},{}]
+    MinOrderUnit minOrderUnit; //选择最小支付单位
 
     static constraints = {
     }

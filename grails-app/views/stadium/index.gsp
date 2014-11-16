@@ -27,16 +27,16 @@
 						<g:sortableColumn property="address" title="${message(code: 'stadium.address.label', default: 'Address')}" />
 					
 						<g:sortableColumn property="city" title="${message(code: 'stadium.city.label', default: 'City')}" />
-					
-						<g:sortableColumn property="dateCreated" title="${message(code: 'stadium.dateCreated.label', default: 'Date Created')}" />
-					
-						<g:sortableColumn property="lastUpdated" title="${message(code: 'stadium.lastUpdated.label', default: 'Last Updated')}" />
-					
-						<g:sortableColumn property="lat" title="${message(code: 'stadium.lat.label', default: 'Lat')}" />
-					
-						<g:sortableColumn property="lng" title="${message(code: 'stadium.lng.label', default: 'Lng')}" />
-					
-					</tr>
+
+                        <g:sortableColumn property="lng" title="${message(code: 'stadium.lng.label', default: 'Lng')}" />
+
+                        <g:sortableColumn property="lat" title="${message(code: 'stadium.lat.label', default: 'Lat')}" />
+
+                        %{--<g:sortableColumn property="dateCreated" title="${message(code: 'stadium.dateCreated.label', default: 'Date Created')}" />
+
+                        <g:sortableColumn property="lastUpdated" title="${message(code: 'stadium.lastUpdated.label', default: 'Last Updated')}" />
+--}%
+                    </tr>
 				</thead>
 				<tbody>
 				<g:each in="${stadiumInstanceList}" status="i" var="stadiumInstance">
@@ -45,15 +45,15 @@
 						<td><g:link action="show" id="${stadiumInstance.id}">${fieldValue(bean: stadiumInstance, field: "address")}</g:link></td>
 					
 						<td>${fieldValue(bean: stadiumInstance, field: "city")}</td>
-					
-						<td><g:formatDate date="${stadiumInstance.dateCreated}" /></td>
-					
-						<td><g:formatDate date="${stadiumInstance.lastUpdated}" /></td>
+
+                        <td>${fieldValue(bean: stadiumInstance, field: "lng")}</td>
 					
 						<td>${fieldValue(bean: stadiumInstance, field: "lat")}</td>
-					
-						<td>${fieldValue(bean: stadiumInstance, field: "lng")}</td>
-					
+
+
+                        %{--<td><g:formatDate date="${stadiumInstance.dateCreated}" /></td>
+
+                        <td><g:formatDate date="${stadiumInstance.lastUpdated}" /></td>--}%
 					</tr>
 				</g:each>
 				</tbody>

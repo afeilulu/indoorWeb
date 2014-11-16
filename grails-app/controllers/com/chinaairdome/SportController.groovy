@@ -1,8 +1,8 @@
 package com.chinaairdome
 
+import grails.transaction.Transactional
 
 import static org.springframework.http.HttpStatus.*
-import grails.transaction.Transactional
 
 @Transactional(readOnly = true)
 class SportController {
@@ -11,7 +11,7 @@ class SportController {
 
     def index(Integer max) {
         params.max = Math.min(max ?: 10, 100)
-        respond Sport.list(params), model: [sportInstanceCount: Sport.count()]
+        respond Sport.list(params), model:[sportInstanceCount: Sport.count()]
     }
 
     def show(Sport sportInstance) {
@@ -30,11 +30,11 @@ class SportController {
         }
 
         if (sportInstance.hasErrors()) {
-            respond sportInstance.errors, view: 'create'
+            respond sportInstance.errors, view:'create'
             return
         }
 
-        sportInstance.save flush: true
+        sportInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
@@ -57,18 +57,18 @@ class SportController {
         }
 
         if (sportInstance.hasErrors()) {
-            respond sportInstance.errors, view: 'edit'
+            respond sportInstance.errors, view:'edit'
             return
         }
 
-        sportInstance.save flush: true
+        sportInstance.save flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.updated.message', args: [message(code: 'Sport.label', default: 'Sport'), sportInstance.id])
                 redirect sportInstance
             }
-            '*' { respond sportInstance, [status: OK] }
+            '*'{ respond sportInstance, [status: OK] }
         }
     }
 
@@ -80,14 +80,14 @@ class SportController {
             return
         }
 
-        sportInstance.delete flush: true
+        sportInstance.delete flush:true
 
         request.withFormat {
             form multipartForm {
                 flash.message = message(code: 'default.deleted.message', args: [message(code: 'Sport.label', default: 'Sport'), sportInstance.id])
-                redirect action: "index", method: "GET"
+                redirect action:"index", method:"GET"
             }
-            '*' { render status: NO_CONTENT }
+            '*'{ render status: NO_CONTENT }
         }
     }
 
@@ -97,7 +97,7 @@ class SportController {
                 flash.message = message(code: 'default.not.found.message', args: [message(code: 'sport.label', default: 'Sport'), params.id])
                 redirect action: "index", method: "GET"
             }
-            '*' { render status: NOT_FOUND }
+            '*'{ render status: NOT_FOUND }
         }
     }
 }

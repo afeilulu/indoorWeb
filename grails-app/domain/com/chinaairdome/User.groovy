@@ -1,5 +1,9 @@
 package com.chinaairdome
 
+/**
+ * 场馆用户，制定场馆使用规则，查看场馆预约以及使用情况
+ * 和Role相关
+ */
 class User {
 
 	transient springSecurityService

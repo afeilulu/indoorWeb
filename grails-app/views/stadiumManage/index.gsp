@@ -32,9 +32,9 @@
 					
 						<g:sortableColumn property="lastUpdated" title="${message(code: 'stadiumManage.lastUpdated.label', default: 'Last Updated')}" />
 					
-						<th><g:message code="stadiumManage.sportDayRule.label" default="Sport Day Rule" /></th>
+						<th><g:message code="stadiumManage.sport.label" default="Sport" /></th>
 					
-						<th><g:message code="stadiumManage.stadium.label" default="Stadium" /></th>
+						<th><g:message code="stadiumManage.sportDayRule.label" default="Sport Day Rule" /></th>
 					
 					</tr>
 				</thead>
@@ -50,9 +50,9 @@
 					
 						<td><g:formatDate date="${stadiumManageInstance.lastUpdated}" /></td>
 					
-						<td>${fieldValue(bean: stadiumManageInstance, field: "sportDayRule")}</td>
+						<td>${fieldValue(bean: stadiumManageInstance, field: "sport")}</td>
 					
-						<td>${fieldValue(bean: stadiumManageInstance, field: "stadium")}</td>
+						<td>${fieldValue(bean: stadiumManageInstance, field: "sportDayRule")}</td>
 					
 					</tr>
 				</g:each>

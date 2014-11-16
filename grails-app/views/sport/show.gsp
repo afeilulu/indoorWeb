@@ -23,11 +23,29 @@
 			</g:if>
 			<ol class="property-list sport">
 			
+				<g:if test="${sportInstance?.maxFieldCount}">
+				<li class="fieldcontain">
+					<span id="maxFieldCount-label" class="property-label"><g:message code="sport.maxFieldCount.label" default="Max Field Count" /></span>
+					
+						<span class="property-value" aria-labelledby="maxFieldCount-label"><g:fieldValue bean="${sportInstance}" field="maxFieldCount"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${sportInstance?.name}">
 				<li class="fieldcontain">
 					<span id="name-label" class="property-label"><g:message code="sport.name.label" default="Name" /></span>
 					
 						<span class="property-value" aria-labelledby="name-label"><g:fieldValue bean="${sportInstance}" field="name"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${sportInstance?.stadium}">
+				<li class="fieldcontain">
+					<span id="stadium-label" class="property-label"><g:message code="sport.stadium.label" default="Stadium" /></span>
+					
+						<span class="property-value" aria-labelledby="stadium-label"><g:link controller="stadium" action="show" id="${sportInstance?.stadium?.id}">${sportInstance?.stadium?.encodeAsHTML()}</g:link></span>
 					
 				</li>
 				</g:if>

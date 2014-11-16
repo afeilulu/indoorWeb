@@ -23,11 +23,20 @@
 			</g:if>
 			<ol class="property-list sportDayRule">
 			
-				<g:if test="${sportDayRuleInstance?.cost}">
+				<g:if test="${sportDayRuleInstance?.minOrderUnit}">
 				<li class="fieldcontain">
-					<span id="cost-label" class="property-label"><g:message code="sportDayRule.cost.label" default="Cost" /></span>
+					<span id="minOrderUnit-label" class="property-label"><g:message code="sportDayRule.minOrderUnit.label" default="Min Order Unit" /></span>
 					
-						<span class="property-value" aria-labelledby="cost-label"><g:fieldValue bean="${sportDayRuleInstance}" field="cost"/></span>
+						<span class="property-value" aria-labelledby="minOrderUnit-label"><g:fieldValue bean="${sportDayRuleInstance}" field="minOrderUnit"/></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${sportDayRuleInstance?.ruleJson}">
+				<li class="fieldcontain">
+					<span id="ruleJson-label" class="property-label"><g:message code="sportDayRule.ruleJson.label" default="Rule Json" /></span>
+					
+						<span class="property-value" aria-labelledby="ruleJson-label"><g:fieldValue bean="${sportDayRuleInstance}" field="ruleJson"/></span>
 					
 				</li>
 				</g:if>
@@ -37,24 +46,6 @@
 					<span id="sport-label" class="property-label"><g:message code="sportDayRule.sport.label" default="Sport" /></span>
 					
 						<span class="property-value" aria-labelledby="sport-label"><g:link controller="sport" action="show" id="${sportDayRuleInstance?.sport?.id}">${sportDayRuleInstance?.sport?.encodeAsHTML()}</g:link></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${sportDayRuleInstance?.timeFrom}">
-				<li class="fieldcontain">
-					<span id="timeFrom-label" class="property-label"><g:message code="sportDayRule.timeFrom.label" default="Time From" /></span>
-					
-						<span class="property-value" aria-labelledby="timeFrom-label"><g:fieldValue bean="${sportDayRuleInstance}" field="timeFrom"/></span>
-					
-				</li>
-				</g:if>
-			
-				<g:if test="${sportDayRuleInstance?.timeTo}">
-				<li class="fieldcontain">
-					<span id="timeTo-label" class="property-label"><g:message code="sportDayRule.timeTo.label" default="Time To" /></span>
-					
-						<span class="property-value" aria-labelledby="timeTo-label"><g:fieldValue bean="${sportDayRuleInstance}" field="timeTo"/></span>
 					
 				</li>
 				</g:if>

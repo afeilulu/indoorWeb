@@ -2,12 +2,21 @@
 
 
 
-<div class="fieldcontain ${hasErrors(bean: sportDayRuleInstance, field: 'cost', 'error')} required">
-	<label for="cost">
-		<g:message code="sportDayRule.cost.label" default="Cost" />
+<div class="fieldcontain ${hasErrors(bean: sportDayRuleInstance, field: 'minOrderUnit', 'error')} required">
+	<label for="minOrderUnit">
+		<g:message code="sportDayRule.minOrderUnit.label" default="Min Order Unit" />
 		<span class="required-indicator">*</span>
 	</label>
-	<g:field name="cost" type="number" value="${sportDayRuleInstance.cost}" required=""/>
+	<g:select name="minOrderUnit" from="${com.chinaairdome.MinOrderUnit?.values()}" keys="${com.chinaairdome.MinOrderUnit.values()*.name()}" required="" value="${sportDayRuleInstance?.minOrderUnit?.name()}" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: sportDayRuleInstance, field: 'ruleJson', 'error')} required">
+	<label for="ruleJson">
+		<g:message code="sportDayRule.ruleJson.label" default="Rule Json" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="ruleJson" required="" value="${sportDayRuleInstance?.ruleJson}"/>
 
 </div>
 
@@ -17,24 +26,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:select id="sport" name="sport.id" from="${com.chinaairdome.Sport.list()}" optionKey="id" required="" value="${sportDayRuleInstance?.sport?.id}" class="many-to-one"/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: sportDayRuleInstance, field: 'timeFrom', 'error')} required">
-	<label for="timeFrom">
-		<g:message code="sportDayRule.timeFrom.label" default="Time From" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="timeFrom" type="number" value="${sportDayRuleInstance.timeFrom}" required=""/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: sportDayRuleInstance, field: 'timeTo', 'error')} required">
-	<label for="timeTo">
-		<g:message code="sportDayRule.timeTo.label" default="Time To" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="timeTo" type="number" value="${sportDayRuleInstance.timeTo}" required=""/>
 
 </div>
 

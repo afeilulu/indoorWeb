@@ -24,7 +24,11 @@
 			<thead>
 					<tr>
 					
+						<g:sortableColumn property="maxFieldCount" title="${message(code: 'sport.maxFieldCount.label', default: 'Max Field Count')}" />
+					
 						<g:sortableColumn property="name" title="${message(code: 'sport.name.label', default: 'Name')}" />
+					
+						<th><g:message code="sport.stadium.label" default="Stadium" /></th>
 					
 					</tr>
 				</thead>
@@ -32,7 +36,11 @@
 				<g:each in="${sportInstanceList}" status="i" var="sportInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${sportInstance.id}">${fieldValue(bean: sportInstance, field: "name")}</g:link></td>
+						<td><g:link action="show" id="${sportInstance.id}">${fieldValue(bean: sportInstance, field: "maxFieldCount")}</g:link></td>
+					
+						<td>${fieldValue(bean: sportInstance, field: "name")}</td>
+					
+						<td>${fieldValue(bean: sportInstance, field: "stadium")}</td>
 					
 					</tr>
 				</g:each>

@@ -1,6 +1,23 @@
 <%@ page import="com.chinaairdome.Stadium" %>
 
 
+<div class="fieldcontain ${hasErrors(bean: stadiumInstance, field: 'name', 'error')} required">
+    <label for="name">
+        <g:message code="stadium.name.label" default="Name" />
+        <span class="required-indicator">*</span>
+    </label>
+    <g:textField name="name" required="" value="${stadiumInstance?.name}"/>
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: stadiumInstance, field: 'city', 'error')} required">
+    <label for="city">
+        <g:message code="stadium.city.label" default="City" />
+        <span class="required-indicator">*</span>
+    </label>
+    <g:textField name="city" required="" value="${stadiumInstance?.city}"/>
+
+</div>
 
 <div class="fieldcontain ${hasErrors(bean: stadiumInstance, field: 'address', 'error')} required">
 	<label for="address">
@@ -11,12 +28,12 @@
 
 </div>
 
-<div class="fieldcontain ${hasErrors(bean: stadiumInstance, field: 'city', 'error')} required">
-	<label for="city">
-		<g:message code="stadium.city.label" default="City" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="city" required="" value="${stadiumInstance?.city}"/>
+<div class="fieldcontain ${hasErrors(bean: stadiumInstance, field: 'lng', 'error')} required">
+    <label for="lng">
+        <g:message code="stadium.lng.label" default="Lng" />
+        <span class="required-indicator">*</span>
+    </label>
+    <g:field name="lng" value="${fieldValue(bean: stadiumInstance, field: 'lng')}" required=""/>
 
 </div>
 
@@ -26,24 +43,6 @@
 		<span class="required-indicator">*</span>
 	</label>
 	<g:field name="lat" value="${fieldValue(bean: stadiumInstance, field: 'lat')}" required=""/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: stadiumInstance, field: 'lng', 'error')} required">
-	<label for="lng">
-		<g:message code="stadium.lng.label" default="Lng" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:field name="lng" value="${fieldValue(bean: stadiumInstance, field: 'lng')}" required=""/>
-
-</div>
-
-<div class="fieldcontain ${hasErrors(bean: stadiumInstance, field: 'name', 'error')} required">
-	<label for="name">
-		<g:message code="stadium.name.label" default="Name" />
-		<span class="required-indicator">*</span>
-	</label>
-	<g:textField name="name" required="" value="${stadiumInstance?.name}"/>
 
 </div>
 

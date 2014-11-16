@@ -20,6 +20,15 @@
 
 </div>
 
+<div class="fieldcontain ${hasErrors(bean: stadiumManageInstance, field: 'sport', 'error')} required">
+	<label for="sport">
+		<g:message code="stadiumManage.sport.label" default="Sport" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:select id="sport" name="sport.id" from="${com.chinaairdome.Sport.list()}" optionKey="id" required="" value="${stadiumManageInstance?.sport?.id}" class="many-to-one"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: stadiumManageInstance, field: 'sportDayRule', 'error')} required">
 	<label for="sportDayRule">
 		<g:message code="stadiumManage.sportDayRule.label" default="Sport Day Rule" />

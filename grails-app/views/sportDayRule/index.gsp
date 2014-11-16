@@ -24,13 +24,11 @@
 			<thead>
 					<tr>
 					
-						<g:sortableColumn property="cost" title="${message(code: 'sportDayRule.cost.label', default: 'Cost')}" />
+						<g:sortableColumn property="minOrderUnit" title="${message(code: 'sportDayRule.minOrderUnit.label', default: 'Min Order Unit')}" />
+					
+						<g:sortableColumn property="ruleJson" title="${message(code: 'sportDayRule.ruleJson.label', default: 'Rule Json')}" />
 					
 						<th><g:message code="sportDayRule.sport.label" default="Sport" /></th>
-					
-						<g:sortableColumn property="timeFrom" title="${message(code: 'sportDayRule.timeFrom.label', default: 'Time From')}" />
-					
-						<g:sortableColumn property="timeTo" title="${message(code: 'sportDayRule.timeTo.label', default: 'Time To')}" />
 					
 					</tr>
 				</thead>
@@ -38,13 +36,11 @@
 				<g:each in="${sportDayRuleInstanceList}" status="i" var="sportDayRuleInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${sportDayRuleInstance.id}">${fieldValue(bean: sportDayRuleInstance, field: "cost")}</g:link></td>
+						<td><g:link action="show" id="${sportDayRuleInstance.id}">${fieldValue(bean: sportDayRuleInstance, field: "minOrderUnit")}</g:link></td>
+					
+						<td>${fieldValue(bean: sportDayRuleInstance, field: "ruleJson")}</td>
 					
 						<td>${fieldValue(bean: sportDayRuleInstance, field: "sport")}</td>
-					
-						<td>${fieldValue(bean: sportDayRuleInstance, field: "timeFrom")}</td>
-					
-						<td>${fieldValue(bean: sportDayRuleInstance, field: "timeTo")}</td>
 					
 					</tr>
 				</g:each>

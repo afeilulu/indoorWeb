@@ -59,6 +59,15 @@
 				</li>
 				</g:if>
 			
+				<g:if test="${stadiumManageInstance?.sport}">
+				<li class="fieldcontain">
+					<span id="sport-label" class="property-label"><g:message code="stadiumManage.sport.label" default="Sport" /></span>
+					
+						<span class="property-value" aria-labelledby="sport-label"><g:link controller="sport" action="show" id="${stadiumManageInstance?.sport?.id}">${stadiumManageInstance?.sport?.encodeAsHTML()}</g:link></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${stadiumManageInstance?.sportDayRule}">
 				<li class="fieldcontain">
 					<span id="sportDayRule-label" class="property-label"><g:message code="stadiumManage.sportDayRule.label" default="Sport Day Rule" /></span>
