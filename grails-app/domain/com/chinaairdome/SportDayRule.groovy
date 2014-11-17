@@ -12,7 +12,7 @@ class SportDayRule {
 
     String toString(){
         if (sport != null)
-            return sport.name + ":" + timeFrom + " - " + timeTo + ":" + cost;
+            return sport.toString() + "-" + ruleJson;
         else
             return "";
     }
