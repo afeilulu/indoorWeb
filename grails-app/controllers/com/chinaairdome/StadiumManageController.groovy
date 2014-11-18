@@ -100,4 +100,24 @@ class StadiumManageController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+    def sportById(){
+        if (!params.id || params.id == "null") {
+            render(g.select(optionKey:"id",from:null,name="sport",noSelection:['':'Select ...']))
+        } else {
+            def lll = Sport.findAllByStadium(Stadium.get(params.id))
+            render g.select(optionKey: "id", from: lll, name: "sport", noSelection:['':'Select ...']
+                    , remoteFunction(action: 'ruleById',update: [success: 'sportDayRule', failure: 'ohno'],params: '\'id=\' + this.value'))
+        }
+
+    }
+
+    def ruleById(){
+        if (!params.id || params.id == "null") {
+            render g.select(optionKey:"id",from:null,name="sportDayRule")
+        } else {
+            def lll = SportDayRule.findAllBySport(Sport.get(params.id))
+            render g.select(optionKey: "id", from: lll, name: "sportDayRule",noSelection:['':'Select ...'])
+        }
+    }
 }
