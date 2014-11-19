@@ -7,7 +7,9 @@ class Sport {
 
     String name;
     int maxFieldCount;
-    Stadium stadium;
+//    Stadium stadium;
+
+    static belongsTo = [stadium:Stadium]
 
     static constraints = {
     }
