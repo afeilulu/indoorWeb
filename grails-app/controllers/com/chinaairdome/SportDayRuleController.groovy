@@ -101,4 +101,40 @@ class SportDayRuleController {
             '*'{ render status: NOT_FOUND }
         }
     }
+
+
+    /**
+     * 通过场馆id 查询 场馆运动和规则
+     */
+    def queryRule = {
+
+        String id = params.get("id");
+
+        List<Sport> sportList = Sport.findAllByStadium(Stadium.findById(id.toLong()));
+        List<SportDayRule> sportDayRuleList = SportDayRule.findAllBySportInList(sportList);
+
+        def results =[]
+
+        sportDayRuleList.each {
+
+            def stadiumId = it.sport.stadium.id.toString();
+
+            def maxCount = it.sport.maxFieldCount;
+
+            def name = it.sport.name;
+
+            def minOrderUnit = it.minOrderUnit.name();
+
+            def ruleJson = it.ruleJson;
+
+            def one = ['stadiumId':stadiumId,'name':name,'maxCount':maxCount,'minOrderUnit':minOrderUnit,'ruleJson':ruleJson]
+
+            results.add(one)
+        }
+
+        render(contentType:"text/json"){
+
+            results
+        }
+    }
 }
