@@ -24,6 +24,10 @@
 			<thead>
 					<tr>
 					
+						<g:sortableColumn property="isAdopted" title="${message(code: 'sportDayRule.isAdopted.label', default: 'Is Adopted')}" />
+					
+						<g:sortableColumn property="memo" title="${message(code: 'sportDayRule.memo.label', default: 'Memo')}" />
+					
 						<g:sortableColumn property="minOrderUnit" title="${message(code: 'sportDayRule.minOrderUnit.label', default: 'Min Order Unit')}" />
 					
 						<g:sortableColumn property="ruleJson" title="${message(code: 'sportDayRule.ruleJson.label', default: 'Rule Json')}" />
@@ -36,7 +40,11 @@
 				<g:each in="${sportDayRuleInstanceList}" status="i" var="sportDayRuleInstance">
 					<tr class="${(i % 2) == 0 ? 'even' : 'odd'}">
 					
-						<td><g:link action="show" id="${sportDayRuleInstance.id}">${fieldValue(bean: sportDayRuleInstance, field: "minOrderUnit")}</g:link></td>
+						<td><g:link action="show" id="${sportDayRuleInstance.id}">${fieldValue(bean: sportDayRuleInstance, field: "isAdopted")}</g:link></td>
+					
+						<td>${fieldValue(bean: sportDayRuleInstance, field: "memo")}</td>
+					
+						<td>${fieldValue(bean: sportDayRuleInstance, field: "minOrderUnit")}</td>
 					
 						<td>${fieldValue(bean: sportDayRuleInstance, field: "ruleJson")}</td>
 					

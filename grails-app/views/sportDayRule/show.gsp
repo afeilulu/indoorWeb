@@ -23,6 +23,24 @@
 			</g:if>
 			<ol class="property-list sportDayRule">
 			
+				<g:if test="${sportDayRuleInstance?.isAdopted}">
+				<li class="fieldcontain">
+					<span id="isAdopted-label" class="property-label"><g:message code="sportDayRule.isAdopted.label" default="Is Adopted" /></span>
+					
+						<span class="property-value" aria-labelledby="isAdopted-label"><g:formatBoolean boolean="${sportDayRuleInstance?.isAdopted}" /></span>
+					
+				</li>
+				</g:if>
+			
+				<g:if test="${sportDayRuleInstance?.memo}">
+				<li class="fieldcontain">
+					<span id="memo-label" class="property-label"><g:message code="sportDayRule.memo.label" default="Memo" /></span>
+					
+						<span class="property-value" aria-labelledby="memo-label"><g:fieldValue bean="${sportDayRuleInstance}" field="memo"/></span>
+					
+				</li>
+				</g:if>
+			
 				<g:if test="${sportDayRuleInstance?.minOrderUnit}">
 				<li class="fieldcontain">
 					<span id="minOrderUnit-label" class="property-label"><g:message code="sportDayRule.minOrderUnit.label" default="Min Order Unit" /></span>

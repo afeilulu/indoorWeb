@@ -2,6 +2,24 @@
 
 
 
+<div class="fieldcontain ${hasErrors(bean: sportDayRuleInstance, field: 'isAdopted', 'error')} ">
+	<label for="isAdopted">
+		<g:message code="sportDayRule.isAdopted.label" default="Is Adopted" />
+		
+	</label>
+	<g:checkBox name="isAdopted" value="${sportDayRuleInstance?.isAdopted}" />
+
+</div>
+
+<div class="fieldcontain ${hasErrors(bean: sportDayRuleInstance, field: 'memo', 'error')} required">
+	<label for="memo">
+		<g:message code="sportDayRule.memo.label" default="Memo" />
+		<span class="required-indicator">*</span>
+	</label>
+	<g:textField name="memo" required="" value="${sportDayRuleInstance?.memo}"/>
+
+</div>
+
 <div class="fieldcontain ${hasErrors(bean: sportDayRuleInstance, field: 'minOrderUnit', 'error')} required">
 	<label for="minOrderUnit">
 		<g:message code="sportDayRule.minOrderUnit.label" default="Min Order Unit" />

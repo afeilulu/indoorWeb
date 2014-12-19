@@ -102,7 +102,6 @@ class SportDayRuleController {
         }
     }
 
-
     /**
      * 通过场馆id 查询 场馆运动和规则
      */
@@ -111,13 +110,17 @@ class SportDayRuleController {
         String id = params.get("id");
 
         List<Sport> sportList = Sport.findAllByStadium(Stadium.findById(id.toLong()));
-        List<SportDayRule> sportDayRuleList = SportDayRule.findAllBySportInList(sportList);
+
+//        List<SportDayRule> sportDayRuleList = SportDayRule.findAllBySportInList(sportList);
+        List<SportDayRule> sportDayRuleList = SportDayRule.findAllBySportInListAndIsAdopted(sportList,true);
 
         def results =[]
 
         sportDayRuleList.each {
 
             def stadiumId = it.sport.stadium.id.toString();
+
+            def sportId = it.sport.id;
 
             def maxCount = it.sport.maxFieldCount;
 
@@ -127,7 +130,9 @@ class SportDayRuleController {
 
             def ruleJson = it.ruleJson;
 
-            def one = ['stadiumId':stadiumId,'name':name,'maxCount':maxCount,'minOrderUnit':minOrderUnit,'ruleJson':ruleJson]
+            def memo = it.memo;
+
+            def one = ['stadiumId':stadiumId,'sportId':sportId,'name':name,'maxCount':maxCount,'minOrderUnit':minOrderUnit,'ruleJson':ruleJson,'memo':memo]
 
             results.add(one)
         }
