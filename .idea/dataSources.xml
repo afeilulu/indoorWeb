@@ -4,9 +4,7 @@
     <data-source source="LOCAL" name="indoor dev" uuid="39734412-9fab-45f8-ae7c-9172fe6a972a">
       <driver-ref>mysql</driver-ref>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://chinaairdome.com/indoor?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;autoReconnectForPools=true&amp;is-connection-validation-required=true</jdbc-url>
-      <user-name>indoor</user-name>
-      <user-password>dfd8dfc5dfc5dfcedfc4dfc3</user-password>
+      <jdbc-url>jdbc:mysql://chinaairdome.com/indoor_dev?useUnicode=true&amp;characterEncoding=UTF-8&amp;autoReconnect=true&amp;autoReconnectForPools=true&amp;is-connection-validation-required=true</jdbc-url>
       <default-dialect>TEXT</default-dialect>
       <libraries>
         <library>
@@ -16,4 +14,3 @@
     </data-source>
   </component>
 </project>
-
