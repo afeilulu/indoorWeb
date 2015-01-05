@@ -11,25 +11,18 @@ class ReservationStatusController {
 
     def query() {
         def dateString = params.get("date").toString()
-//        def paramDate = new SimpleDateFormat("yyyyMMdd").parse(dateString)
         def sport = Sport.findById(params.get("sportId").toString().toLong())
         def stadium = Stadium.findById(params.get("stadiumId").toString().toLong())
-
-//        def result = ReservationStatus.withCriteria(uniqueResult: true) {
-//            between('reserveDate', paramDate, paramDate + 1)
-//            eq('sport', sport)
-//            eq('stadium', stadium)
-//        }
 
         def result = ReservationStatus.findByDateAndSportAndStadium(dateString,sport,stadium);
 
         if (result != null)
             render(contentType: "text/json") {
-                ['resultCode': 1, 'stadiumId': result.stadium.id, 'sportId': result.sport.id, 'status': result.status, 'date': result.date]
+                ['resultCode': 1, 'action':'query', 'stadiumId': result.stadium.id, 'sportId': result.sport.id, 'status': result.status, 'date': result.date]
             }
         else
             render(contentType: "text/json") {
-                ['resultCode': 0]
+                ['resultCode': 0, 'action':'query']
             }
 
     }
@@ -62,7 +55,7 @@ class ReservationStatusController {
         result.save flush: true
 
         render(contentType: "text/json") {
-            ['resultCode': 1,'resultMessage':'保存成功']
+            ['resultCode': 1,'resultMessage':'保存成功','action':'save']
         }
     }
 
@@ -111,7 +104,7 @@ class ReservationStatusController {
         }
 
         render(contentType: "text/json") {
-            ['resultCode': 1,'resultMessage':'保存成功']
+            ['resultCode': 1,'resultMessage':'保存成功', 'action':'save']
         }
 
     }
